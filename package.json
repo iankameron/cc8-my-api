@@ -1,0 +1,22 @@
+{
+  "name": "cc8-my-api",
+  "version": "0.1.0",
+  "description": "api for recording bowling data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iankameron/cc8-my-api.git"
+  },
+  "keywords": [
+    "bowling"
+  ],
+  "author": "Ian Cameron",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iankameron/cc8-my-api/issues"
+  },
+  "homepage": "https://github.com/iankameron/cc8-my-api#readme"
+}
