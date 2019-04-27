@@ -2,3 +2,6 @@
 # Package data
 node_modules
 yarn-error.log
+
+# VS Code files
+.vscode
