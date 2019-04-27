@@ -4,7 +4,7 @@ chai.use(chaiHttp);
 chai.should();
 
 const { server } = require("../server");
-
+const chaidata = require("./testdata/chaidata");
 //const _ = require("underscore");
 const sinon = require("sinon");
 
@@ -18,14 +18,12 @@ describe("DB tests", () => {
   });
   describe("add/edit/remove centers", () => {
     it("post a new center", async () => {
-      const newCenter = {
-        name: "Tokyo Port Bowl",
-        maxLanes: 40,
-        address: "Tamachi"
-      };
-      const res = await request.post("/api/centers").send(newCenter);
+      const res = await request.post("/api/centers").send(chaidata.addCenter);
+      res.body.name.should.equal(chaidata.addCenterExpected.name);
       res.statusCode.should.equal(201);
     });
-    //it("gets all centers");
+    // it("gets all centers", () => {
+
+    // });
   });
 });

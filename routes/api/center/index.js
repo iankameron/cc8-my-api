@@ -6,12 +6,18 @@ module.exports = services => {
     const Center = req.body;
     services.db.centers
       .create(Center)
-      .then(center => {
-        res.status(201).json(center.serialize);
-      })
+      .then(center => res.status(201).json(center.serialize()))
       .catch(err => {
         res.status(400).send(err.message);
       });
+  });
+
+  router.get("", (req, res) => {
+    services.db.centers
+      .list()
+      .then(centers => centers.map(center => center.serialize()))
+      .then()
+      .catch(err => res.status(400).send("Couldn't handle"));
   });
 
   return router;
