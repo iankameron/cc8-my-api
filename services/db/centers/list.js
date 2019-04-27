@@ -1,4 +1,5 @@
 module.exports = (knex, Center) => params => {
+  console.log("got to DB");
   return knex
     .select()
     .from("centers")

@@ -22,8 +22,13 @@ describe("DB tests", () => {
       res.body.name.should.equal(chaidata.addCenterExpected.name);
       res.statusCode.should.equal(201);
     });
-    // it("gets all centers", () => {
-
-    // });
+    it("gets all centers", async () => {
+      const res2 = await request.post("/api/centers").send(chaidata.addCenter2);
+      const res3 = await request.get("/api/centers");
+      // Note: DB still contains one center from last test, thus expect 2
+      res3.body.length.should.equal(2);
+      res3.body[0].name.should.equal(chaidata.listCenterExpected[0].name);
+      res3.body[1].name.should.equal(chaidata.listCenterExpected[1].name);
+    });
   });
 });

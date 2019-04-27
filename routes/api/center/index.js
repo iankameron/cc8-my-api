@@ -16,7 +16,7 @@ module.exports = services => {
     services.db.centers
       .list()
       .then(centers => centers.map(center => center.serialize()))
-      .then()
+      .then(centers => res.status(201).json(centers))
       .catch(err => res.status(400).send("Couldn't handle"));
   });
 
