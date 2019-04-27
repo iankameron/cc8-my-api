@@ -3,18 +3,18 @@ module.exports = {
     client: "pg",
     connection: {
       host: "127.0.0.1",
-      database: "bowl",
+      database: "bowling"
     },
-    port: 5432,
+    port: 5432
   },
 
   // port for server
   express: {
-    port:3000
+    port: 3000
   },
 
   // timestamp format for logs
   logger: {
-    format: "dddd MMMM Do YYYY, h:mm:ss a",
-  },
-}
+    format: "dddd MMMM Do YYYY, h:mm:ss a"
+  }
+};

@@ -4,11 +4,11 @@ chai.use(chaiHttp);
 chai.should();
 
 const { server } = require("../server");
-//const { pokemon, attacks, types } = require("../src/data/index.js");
 
 //const _ = require("underscore");
 const sinon = require("sinon");
-describe("API tests", () => {
+
+describe("DB tests", () => {
   let request;
   beforeEach(() => {
     request = chai.request(server).keepOpen();
@@ -16,11 +16,16 @@ describe("API tests", () => {
   afterEach(() => {
     request.close();
   });
-  describe("Test Placeholder", () => {
-    it("should test something", async () => {
-      const res = await request.get("/api/centers");
-      console.log(res.body);
-      true.should.equal(true);
+  describe("add/edit/remove centers", () => {
+    it("post a new center", async () => {
+      const newCenter = {
+        name: "Tokyo Port Bowl",
+        maxLanes: 40,
+        address: "Tamachi"
+      };
+      const res = await request.post("/api/centers").send(newCenter);
+      res.statusCode.should.equal(201);
     });
+    //it("gets all centers");
   });
 });

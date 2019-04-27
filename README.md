@@ -1,5 +1,8 @@
+This was created during my time as a student at Code Chrysalis
+
 # bowling-api
-Code Chrysalis API project
+
+Personal API project
 
 ## Purpose
 
@@ -12,7 +15,7 @@ This repo provides the following to set up a RESTful API that can be used to cre
 ## Getting started
 
 - Yarn
-- Create 'bowldata' database
+- Create 'bowling' database
 - yarn migrate - to initialise
 - (Optional) - run XXX to initialize DB with 2 months of random data.
 

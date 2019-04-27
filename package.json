@@ -4,9 +4,11 @@
   "description": "api for recording bowling data",
   "main": "index.js",
   "scripts": {
-    "test": "node tests/initializeDB.js && mocha tests/test.js",
+    "test": "node tests/initializeDB.js && mocha --exit tests/test.js",
     "start": "node index.js",
-    "precommit": "pretty-quick --staged"
+    "precommit": "pretty-quick --staged",
+    "migrate": "knex migrate:latest --knexfile services/db/knexfile.js",
+    "rollback": "knex migrate:rollback --knexfile services/db/knexfile.js "
   },
   "repository": {
     "type": "git",
