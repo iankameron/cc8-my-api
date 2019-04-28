@@ -13,13 +13,13 @@ module.exports = services => {
       });
   });
 
-  // router.get("", (req, res) => {
-  //   services.db.centers
-  //     .list({ id: req.query.id })
-  //     .then(centers => centers.map(center => center.serialize()))
-  //     .then(centers => res.status(201).json(centers))
-  //     .catch(err => res.status(400).send("Couldn't handle"));
-  // });
+  router.get("", (req, res) => {
+    services.db.members
+      .list({ id: req.query.id })
+      .then(members => members.map(member => member.serialize()))
+      .then(members => res.status(201).json(members))
+      .catch(err => res.status(400).send("Couldn't handle"));
+  });
 
   return router;
 };

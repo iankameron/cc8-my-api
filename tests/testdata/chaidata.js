@@ -34,6 +34,11 @@ module.exports = {
     centerId: 1,
     skillLevel: 4
   },
+  addMember2: {
+    name: "Test Member2",
+    centerId: 1,
+    skillLevel: 3
+  },
   addMemberExpected: {
     id: 1,
     name: "Test Member",

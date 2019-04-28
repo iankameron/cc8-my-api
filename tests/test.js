@@ -42,5 +42,14 @@ describe("DB tests", () => {
       const res = await request.post("/api/members").send(chaidata.addMember);
       res.body.should.deep.include(chaidata.addMember);
     });
+    it("should list members", async () => {
+      const res0 = await request.get("/api/centers");
+      const newCenterId = res0.body[0].id;
+      chaidata.addMember2.centerId = newCenterId;
+
+      await request.post("/api/members").send(chaidata.addMember2);
+      const res = await request.get("/api/members");
+      res.body[1].should.deep.include(chaidata.addMember2);
+    });
   });
 });
