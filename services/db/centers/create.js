@@ -30,7 +30,7 @@ module.exports = (knex, Center) => {
       .catch(err => {
         // known errors
         if (err.message.match("duplicate key value"))
-          throw new Error("That username already exists");
+          throw new Error("That centername already exists");
 
         // unknown errors
         throw err;
