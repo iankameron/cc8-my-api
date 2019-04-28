@@ -7,7 +7,7 @@ const ignoreError = () => {
 
 const clearTable = tableName =>
   knex(tableName)
-    .del()
+    .truncate()
     .then(() => tableName)
     .catch(ignoreError);
 
