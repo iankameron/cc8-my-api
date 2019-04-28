@@ -1,7 +1,7 @@
 // *******   START SERVER   *************
 
 // NAME OF DATABASE ENVIRONMENT TO CONNECT TO
-const env = "dev";
+const env = "prod";
 
 // get config for the appropriate database
 const config = require("./config.js")[env];
