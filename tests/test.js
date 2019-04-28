@@ -3,9 +3,11 @@ const chai = require("chai");
 chai.use(chaiHttp);
 chai.should();
 
-const { server } = require("../server")("dev");
+const { services, server } = require("../server")("dev");
 const chaidata = require("./testdata/chaidata");
 const sinon = require("sinon");
+const Promise = require("bluebird");
+const knex = require("knex");
 
 describe("DB tests", () => {
   let request;
@@ -50,18 +52,15 @@ describe("DB tests", () => {
       await request.post("/api/members").send(chaidata.addMember2);
       const res = await request.get("/api/members");
       res.body[1].should.deep.include(chaidata.addMember2);
-      console.log(res.body);
     });
     it("should patch existing members", async () => {
       const res0 = await request
         .patch("/api/members/2")
         .send({ newName: "Changed Name" });
-      console.log(res0.body);
       res0.body.name.should.equal("Changed Name");
     });
     it("should delete existing members", async () => {
       const res0 = await request.del("/api/members/2");
-      console.log(res0.body);
       res0.body.name.should.equal("Changed Name");
     });
   });
@@ -74,6 +73,22 @@ describe("DB tests", () => {
   });
   afterEach(() => {
     request.close();
+  });
+  describe("centers table tests", () => {
+    it("post a new center", async () => {
+      const dbFeedback = {};
+      const createOutput = new services.db.centers.Center({
+        id: 1,
+        name: "Test Center",
+        max_lanes: 99,
+        address: "Test Place"
+      });
+      const stub1 = sinon
+        .stub(services.db.centers, "create")
+        .returns(Promise.resolve(createOutput));
+      const res = await request.post("/api/centers").send(chaidata.addCenter);
+      res.body.should.deep.include(chaidata.addCenterExpected);
+    });
   });
 });
 

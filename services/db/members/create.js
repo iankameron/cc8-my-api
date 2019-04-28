@@ -18,7 +18,8 @@ module.exports = (knex, Member) => {
     }
 
     // return knex("members").select();
-    return knex("members")
+    return knex
+      .table("members")
       .returning("id")
       .insert({
         name: name,

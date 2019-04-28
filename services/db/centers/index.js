@@ -19,6 +19,7 @@ Center.prototype.serialize = function() {
 
 module.exports = knex => {
   return {
+    Center,
     create: require("./create")(knex, Center),
     list: require("./list")(knex, Center)
     //get: require("./get")(knex, Center)

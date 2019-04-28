@@ -22,10 +22,7 @@ module.exports = (knex, Member) => {
           .where({ id: parseInt(patchId) })
           .select();
       })
-      .then(members => {
-        console.log(members);
-        return new Member(members.pop());
-      })
+      .then(members => new Member(members.pop()))
       .catch(err => {
         console.log(err);
         // known errors
