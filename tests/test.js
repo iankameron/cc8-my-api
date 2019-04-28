@@ -3,7 +3,7 @@ const chai = require("chai");
 chai.use(chaiHttp);
 chai.should();
 
-const { server } = require("../server");
+const { server } = require("../server")("dev");
 const chaidata = require("./testdata/chaidata");
 //const _ = require("underscore");
 const sinon = require("sinon");

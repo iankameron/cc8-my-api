@@ -1,8 +1,8 @@
-const config = require("../config");
+const config = require("../config")["dev"];
 const knex = require("knex")(config.db);
 
 const ignoreError = () => {
-  // ignore
+  console.log("ignoring error");
 };
 
 const clearTable = tableName =>

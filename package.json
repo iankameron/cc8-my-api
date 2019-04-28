@@ -7,8 +7,11 @@
     "test": "node tests/initializeDB.js && mocha --exit tests/test.js",
     "start": "node index.js",
     "precommit": "pretty-quick --staged",
-    "migrate": "knex migrate:latest --knexfile services/db/knexfile.js",
-    "rollback": "knex migrate:rollback --knexfile services/db/knexfile.js "
+    "migrateprod": "knex migrate:latest --knexfile services/db/knexfile.js --env prod",
+    "rollbackprod": "knex migrate:rollback --knexfile services/db/knexfile.js --env prod",
+    "migratedev": "knex migrate:latest --knexfile services/db/knexfile.js --env dev",
+    "rollbackdev": "knex migrate:rollback --knexfile services/db/knexfile.js --env dev",
+    "seedprod": "knex seed:run --knexfile services/db/knexfile.js --env prod"
   },
   "repository": {
     "type": "git",
