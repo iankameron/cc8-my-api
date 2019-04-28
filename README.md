@@ -12,17 +12,25 @@ This repo provides the following to set up a RESTful API that can be used to cre
 - DB: POSTGRES
 - Testing: chai-http
 
-## Getting started
+## Getting started (for production DB)
 
 - Yarn
 - Create 'bowling' database
-- yarn migrate - to initialise
-- (Optional) - run XXX to initialize DB with 2 months of random data.
+- yarn migrateprod
+- yarn seedprod (if you want to seed data)
+- (Optional) yarn seedprod (if you want to seed data)
+
+### (for development and testing)
+
+- Create 'bowldev' database
+- yarn migratedev - to initialise
+- yarn test
 
 ## Endpoints
 
 - /centers - Bowling Center data
 - /members - Member data
-- /leagues - League data
+- /games - Game data (HOPEFULLY COMING SOON)
+- /league - League data (HOPEFULLY COMING SOON)
 
-Documentation available HERE
+Documentation available in ./public/index.html
