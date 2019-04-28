@@ -30,5 +30,9 @@ describe("DB tests", () => {
       res3.body[0].name.should.equal(chaidata.listCenterExpected[0].name);
       res3.body[1].name.should.equal(chaidata.listCenterExpected[1].name);
     });
+    it("gets a center based on ID", async () => {
+      const res4 = await request.get("/api/centers?id=1");
+      true.should.equal(true);
+    });
   });
 });

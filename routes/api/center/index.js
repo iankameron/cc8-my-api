@@ -14,7 +14,7 @@ module.exports = services => {
 
   router.get("", (req, res) => {
     services.db.centers
-      .list()
+      .list({ id: req.query.id })
       .then(centers => centers.map(center => center.serialize()))
       .then(centers => res.status(201).json(centers))
       .catch(err => res.status(400).send("Couldn't handle"));
