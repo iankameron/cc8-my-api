@@ -37,7 +37,7 @@ module.exports = (knex, Member) => {
         console.log(err);
         // known errors
         if (err.message.match("duplicate key value"))
-          throw new Error("That username already exists");
+          throw new Error("Duplicate in database");
 
         // unknown errors
         throw err;
