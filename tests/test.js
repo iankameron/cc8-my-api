@@ -18,7 +18,7 @@ describe("DB tests", () => {
   describe("add/edit/remove centers", () => {
     it("post a new center", async () => {
       const res = await request.post("/api/centers").send(chaidata.addCenter);
-      res.body.should.deep.equal(chaidata.addCenterExpected);
+      res.body.should.deep.include(chaidata.addCenter);
     });
     it("gets all centers", async () => {
       const res2 = await request.post("/api/centers").send(chaidata.addCenter2);
@@ -37,7 +37,7 @@ describe("DB tests", () => {
   describe("add/edit/delete member data", () => {
     it("should add a member", async () => {
       const res = await request.post("/api/members").send(chaidata.addMember);
-      res.body.should.deep.equal(chaidata.addMemberExpected);
+      res.body.should.deep.include(chaidata.addMember);
     });
   });
 });

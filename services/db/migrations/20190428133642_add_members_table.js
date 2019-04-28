@@ -8,7 +8,8 @@ exports.up = function(knex, Promise) {
     // foreign keys
     t.foreign("center_id")
       .references("id")
-      .inTable("centers");
+      .inTable("centers")
+      .onDelete("cascade");
   });
 };
 
