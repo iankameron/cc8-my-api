@@ -3,5 +3,6 @@ module.exports = (knex, Center) => params => {
   return knex
     .select()
     .from("centers")
+    .orderBy("id")
     .then(centers => centers.map(center => new Center(center)));
 };
