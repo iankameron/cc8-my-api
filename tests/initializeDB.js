@@ -11,7 +11,7 @@ const clearTable = tableName =>
     .then(() => tableName)
     .catch(ignoreError);
 
-const tables = ["members", "centers"];
+const tables = ["player_games", "members", "centers"];
 
 Promise.all(tables.map(clearTable)).then(clearedTables => {
   for (let clearedTable of clearedTables) {

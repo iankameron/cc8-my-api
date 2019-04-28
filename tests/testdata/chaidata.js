@@ -44,5 +44,11 @@ module.exports = {
     name: "Test Member",
     centerId: 1,
     skillLevel: 4
+  },
+  addGame: {
+    lane_game_id: 1,
+    memberId: 311,
+    finalScore: 214,
+    scoreDetails: "9PS9P9PS9PSSS9P6"
   }
 };

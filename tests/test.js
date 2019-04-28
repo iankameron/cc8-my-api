@@ -52,4 +52,23 @@ describe("DB tests", () => {
       res.body[1].should.deep.include(chaidata.addMember2);
     });
   });
+  describe("add/edit/delete game data", () => {
+    it("should add a game", async () => {
+      const res1 = await request.get("/api/members");
+      const newMemberId = res1.body[0].id;
+      console.log(res1.body[0]);
+      chaidata.addGame.memberId = newMemberId;
+      const res = await request.post("/api/games").send(chaidata.addGame);
+      res.body.should.deep.include(chaidata.addGame);
+    });
+    // it("should list members", async () => {
+    //   const res0 = await request.get("/api/centers");
+    //   const newCenterId = res0.body[0].id;
+    //   chaidata.addMember2.centerId = newCenterId;
+
+    //   await request.post("/api/members").send(chaidata.addMember2);
+    //   const res = await request.get("/api/members");
+    //   res.body[1].should.deep.include(chaidata.addMember2);
+    // });
+  });
 });
