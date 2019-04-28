@@ -1,7 +1,7 @@
 const Center = function(dbCenter) {
   this.id = dbCenter.id;
   this.name = dbCenter.name;
-  this.maxLanes = dbCenter.maxLanes;
+  this.maxLanes = dbCenter.max_lanes;
   this.address = dbCenter.address;
 };
 

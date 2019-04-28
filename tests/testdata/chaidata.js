@@ -10,7 +10,7 @@ module.exports = {
     address: "Test Place part 2"
   },
   addCenterExpected: {
-    id: 5,
+    id: 1,
     name: "Test Center",
     maxLanes: 99,
     address: "Test Place"
@@ -28,5 +28,16 @@ module.exports = {
       maxLanes: 999,
       address: "Test Place part 2"
     }
-  ]
+  ],
+  addMember: {
+    name: "Test Member",
+    centerId: 1,
+    skillLevel: 4
+  },
+  addMemberExpected: {
+    id: 1,
+    name: "Test Member",
+    centerId: 1,
+    skillLevel: 4
+  }
 };
