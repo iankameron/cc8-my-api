@@ -1,14 +1,65 @@
 <!DOCTYPE html>
 
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Bowling API</title>
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <title>Bowling API</title>
-</head>
+  <p>This is a bowling API!</p>
+  <p>
+    Here's the
+    <a href="https://github.com/iankameron/bowling-api">GitHub Page</a>!!
+  </p>
 
-<p>This is a bowling API!</p>
-
-<p>Here's the <a href="https://github.com/iankameron/bowling-api">GitHub Page</a>!!</p>
-
+  <h2>Basic usage</h2>
+  <ul>
+    <li>/api/centers</li>
+    <ul>
+      <li>GET</li>
+      <ul>
+        <li>returns all centers</li>
+      </ul>
+      <li>POST</li>
+      <ul>
+        <li>
+          creates a new center with JSON as follows
+          <ul>
+            <li>name: STRING (60)</li>
+            <li>maxLanes: NUMBER (existing Center ID)</li>
+            <li>address: STRING (255)</li>
+          </ul>
+        </li>
+      </ul>
+    </ul>
+    <li>/api/members</li>
+    <ul>
+      <li>GET</li>
+      <ul>
+        <li>returns all members for all centers</li>
+      </ul>
+      <li>POST</li>
+      <ul>
+        <li>creates a new member with JSON as follows</li>
+        <ul>
+          <li>name: STRING (100)</li>
+          <li>centerId: NUMBER (existing Center ID)</li>
+          <li>skillLevel: NUMBER 0-4</li>
+        </ul>
+      </ul>
+      <li>PATCH</li>
+      <ul>
+        <li>URL: /api/members/<strong>MEMBER_ID</strong></li>
+        <li>Edits an existing member with JSON containing</li>
+        <ul>
+          <li>name: STRING (Only supports name changes)</li>
+        </ul>
+      </ul>
+      <li>DELETE</li>
+      <ul>
+        <li>URL: /api/members/<strong>MEMBER_ID</strong></li>
+        <li>Deletes an existing member</li>
+      </ul>
+    </ul>
+  </ul>
 </html>
