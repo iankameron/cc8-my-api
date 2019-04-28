@@ -13,8 +13,8 @@ module.exports = function(config) {
   });
 
   return {
-    centers: require("./centers")(knex)
-    // channels: require("./channels")(knex),
+    centers: require("./centers")(knex),
+    members: require("./members")(knex)
     // channelMessages: require("./channelMessages")(knex),
     // userMessages: require("./userMessages")(knex),
   };

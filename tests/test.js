@@ -36,6 +36,9 @@ describe("DB tests", () => {
   });
   describe("add/edit/delete member data", () => {
     it("should add a member", async () => {
+      const res0 = await request.get("/api/centers");
+      const newCenterId = res0.body[0].id;
+      chaidata.addMember.centerId = newCenterId;
       const res = await request.post("/api/members").send(chaidata.addMember);
       res.body.should.deep.include(chaidata.addMember);
     });
