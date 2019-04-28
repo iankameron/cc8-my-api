@@ -59,6 +59,21 @@ describe("DB tests", () => {
       console.log(res0.body);
       res0.body.name.should.equal("Changed Name");
     });
+    it("should delete existing members", async () => {
+      const res0 = await request.del("/api/members/2");
+      console.log(res0.body);
+      res0.body.name.should.equal("Changed Name");
+    });
+  });
+});
+
+describe("DB tests", () => {
+  let request;
+  beforeEach(() => {
+    request = chai.request(server).keepOpen();
+  });
+  afterEach(() => {
+    request.close();
   });
 });
 

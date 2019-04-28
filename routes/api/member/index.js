@@ -24,9 +24,16 @@ module.exports = services => {
   router.patch("/:id", (req, res) => {
     const patchId = req.params.id;
     const { newName } = req.body;
-    console.log(patchId, newName);
     services.db.members
       .patch({ patchId, newName })
+      .then(member => res.status(201).json(member.serialize()))
+      .catch(err => res.status(400).send("Couldn't handle"));
+  });
+
+  router.delete("/:id", (req, res) => {
+    const deleteId = req.params.id;
+    services.db.members
+      .delete({ deleteId })
       .then(member => res.status(201).json(member.serialize()))
       .catch(err => res.status(400).send("Couldn't handle"));
   });
