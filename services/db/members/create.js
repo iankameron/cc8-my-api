@@ -26,7 +26,6 @@ module.exports = (knex, Member) => {
         center_id: parseInt(centerId),
         skill_level: parseInt(skillLevel)
       })
-      .orderBy("id")
       .then(memberId => {
         return knex("members")
           .where({ id: parseInt(memberId) })

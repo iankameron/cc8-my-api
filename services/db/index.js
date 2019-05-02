@@ -14,8 +14,8 @@ module.exports = function(config) {
 
   return {
     centers: require("./centers")(knex),
-    members: require("./members")(knex)
-    // channelMessages: require("./channelMessages")(knex),
-    // userMessages: require("./userMessages")(knex),
+    members: require("./members")(knex),
+    sessions: require("./sessions")(knex),
+    games: require("./games")(knex)
   };
 };
