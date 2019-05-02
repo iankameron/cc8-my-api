@@ -9,7 +9,7 @@ const sinon = require("sinon");
 const Promise = require("bluebird");
 const knex = require("knex");
 
-describe("DB tests", () => {
+describe.only("DB tests", () => {
   let request;
   beforeEach(() => {
     request = chai.request(server).keepOpen();
@@ -64,16 +64,27 @@ describe("DB tests", () => {
       res0.body.name.should.equal("Changed Name");
     });
   });
+  describe("add/get/delete simple session and game data", () => {
+    it("should post a session and game", async () => {
+      const res1 = await request
+        .post("api/centers/sessions")
+        .send(chaidata.addSession);
+      res1.body.should.deep.includes(chaidata.addSessionExpected);
+      res1.body.startTime.should.exist();
+      const res2 = await request.post("api/games").send(chaidata.addGame);
+      res2.body.should.deep.includes(chaidata.addGameExpected);
+      res2.body.id.should.exist();
+    });
+  });
 });
 
-describe("DB tests", () => {
+describe("Stub tests", () => {
   let request;
   beforeEach(() => {
     request = chai.request(server).keepOpen();
   });
-  afterEach(() => {
-    request.close();
-  });
+  afterEach(() => {});
+  request.close();
   describe("centers table tests", () => {
     it("post a new center", async () => {
       const dbFeedback = {};

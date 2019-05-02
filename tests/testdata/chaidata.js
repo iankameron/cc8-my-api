@@ -45,6 +45,10 @@ module.exports = {
     centerId: 1,
     skillLevel: 4
   },
+  addLaneGame: {
+    centerId: 1,
+    numOfBowlers: 1
+  },
   addGame: {
     lane_game_id: 1,
     memberId: 311,
