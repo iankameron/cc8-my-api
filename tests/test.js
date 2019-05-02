@@ -62,18 +62,20 @@ describe.only("DB tests", () => {
     it("should delete existing members", async () => {
       const res0 = await request.del("/api/members/2");
       res0.body.name.should.equal("Changed Name");
+      console.log("still working here");
     });
   });
   describe("add/get/delete simple session and game data", () => {
     it("should post a session and game", async () => {
+      console.log("still working here");
       const res1 = await request
-        .post("api/centers/sessions")
+        .post("/api/centers/sessions")
         .send(chaidata.addSession);
       res1.body.should.deep.includes(chaidata.addSessionExpected);
-      res1.body.startTime.should.exist();
-      const res2 = await request.post("api/games").send(chaidata.addGame);
+      res1.body.startTime.should.not.equal(null);
+      const res2 = await request.post("/api/games").send(chaidata.addGame);
       res2.body.should.deep.includes(chaidata.addGameExpected);
-      res2.body.id.should.exist();
+      res2.body.id.should.not.equal(null);
     });
   });
 });
@@ -83,8 +85,10 @@ describe("Stub tests", () => {
   beforeEach(() => {
     request = chai.request(server).keepOpen();
   });
-  afterEach(() => {});
-  request.close();
+  afterEach(() => {
+    request.close();
+  });
+
   describe("centers table tests", () => {
     it("post a new center", async () => {
       const dbFeedback = {};

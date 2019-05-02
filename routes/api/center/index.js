@@ -1,7 +1,10 @@
 const express = require("express");
 const router = express.Router();
+const sessionRouter = require("./session");
 
 module.exports = services => {
+  router.use("/sessions", sessionRouter(services));
+
   router.post("", (req, res) => {
     const Center = req.body;
     services.db.centers
