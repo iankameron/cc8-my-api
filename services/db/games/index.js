@@ -21,8 +21,8 @@ Game.prototype.serialize = function() {
 
 module.exports = knex => {
   return {
-    create: require("./create")(knex, Game)
-    //list: require("./list")(knex, Game),
+    create: require("./create")(knex, Game),
+    list: require("./list")(knex, Game)
     //patch: require("./patch")(knex, Game),
     //delete: require("./delete")(knex, Game)
     //get: require("./get")(knex, Game)

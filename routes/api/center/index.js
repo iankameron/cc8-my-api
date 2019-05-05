@@ -17,7 +17,20 @@ module.exports = services => {
 
   router.get("", (req, res) => {
     services.db.centers
-      .list({ id: req.query.id })
+      .list({ id: null }) // list all
+      .then(centers => centers.map(center => center.serialize()))
+      .then(centers => {
+        res.status(201).json(centers);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(400).send("Couldn't handle");
+      });
+  });
+
+  router.get("/:id", (req, res) => {
+    services.db.centers
+      .list({ id: req.params.id })
       .then(centers => centers.map(center => center.serialize()))
       .then(centers => res.status(201).json(centers))
       .catch(err => res.status(400).send("Couldn't handle"));

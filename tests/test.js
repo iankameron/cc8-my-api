@@ -32,7 +32,7 @@ describe.only("DB tests", () => {
       res3.body[1].name.should.equal(chaidata.listCenterExpected[1].name);
     });
     it("gets a center based on ID", async () => {
-      const res4 = await request.get("/api/centers?id=1");
+      const res4 = await request.get("/api/centers/1");
       true.should.equal(true);
     });
   });
@@ -62,12 +62,10 @@ describe.only("DB tests", () => {
     it("should delete existing members", async () => {
       const res0 = await request.del("/api/members/2");
       res0.body.name.should.equal("Changed Name");
-      console.log("still working here");
     });
   });
   describe("add/get/delete simple session and game data", () => {
     it("should post a session and game", async () => {
-      console.log("still working here");
       const res1 = await request
         .post("/api/centers/sessions")
         .send(chaidata.addSession);
